@@ -1,4 +1,5 @@
 const Quote = require('../models/quote');
+const Author = require('../models/author');
 
 module.exports = {
   quotes: async function () {
@@ -45,6 +46,40 @@ module.exports = {
     return {
       ...quote._doc,
       _id: quote._id.toString(),
+    };
+  },
+  /*****************************************/
+  createAuthor: async function ({ authorInput }) {
+    const author = new Author({
+      name: authorInput.name,
+    });
+    const createdAuthor = await author.save();
+    return {
+      ...createdAuthor._doc,
+      _id: createdAuthor._id.toString(),
+    };
+  },
+  updateAuthor: async function ({ id, authorInput }) {
+    const author = await Author.findById(id);
+    if (!author) {
+      throw new Error('No author found!');
+    }
+    author.name = authorInput.name
+    const updatedAuthor = await author.save();
+    return {
+      ...updatedAuthor._doc,
+      _id: updatedAuthor._id.toString(),
+    };
+  },
+  deleteAuthor: async function ({ id }) {
+    const author = await Author.findById(id);
+    if (!author) {
+      throw new Error('No author found!');
+    }
+    await Author.findByIdAndRemove(id);
+    return {
+      ...author._doc,
+      _id: author._id.toString(),
     };
   },
 };

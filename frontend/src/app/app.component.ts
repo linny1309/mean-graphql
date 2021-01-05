@@ -12,18 +12,18 @@ const GET_QUOTES = gql`
       quotes {
         _id
         quote
-        author
+        authorId
       }
     }
   }
 `;
 
 const CREATE_QUOTE = gql`
-  mutation createQuote($quote: String!, $author: String!) {
+  mutation createQuote($quote: String!, $authorId: String!) {
     createQuote(quoteInput: { quote: $quote, author: $author }) {
       _id
       quote
-      author
+      authorId
     }
   }
 `;
@@ -33,7 +33,7 @@ const DELETE_QUOTE = gql`
     deleteQuote(id: $id) {
       _id
       quote
-      author
+      authorId
     }
   }
 `;
@@ -74,7 +74,7 @@ export class AppComponent implements OnInit {
         },
       })
       .subscribe(() => {
-        console.log("created");
+        console.log("The quote has been created.");
       });
   }
 
@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
         },
       })
       .subscribe(() => {
-        console.log("deleted");
+        console.log("The quote has been deleted.");
       });
   }
 }

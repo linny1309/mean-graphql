@@ -7,7 +7,7 @@ const quoteSchema = new Schema({
     type: String,
     required: true,
   },
-  author: {
+  authorId: {
     type: String,
     required: true,
   },

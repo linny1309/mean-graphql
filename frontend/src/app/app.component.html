@@ -1,10 +1,15 @@
-<h2>Create Quote</h2>
-quote: <input #quote type="text" /> author: <input #author type="text" />
-<button (click)="create(quote.value, author.value)">Submit</button>
-<h1>Quotes</h1>
-<ul>
-  <li *ngFor="let quote of quotes | async">
-    "{{ quote.quote }}", {{ quote.author }}
-    <button (click)="delete(quote._id)">Delete</button>
-  </li>
-</ul>
+<div class="body">
+  <h3 class="create-title">Create Quote</h3>
+  <div class="label">Type in the Author of the Quote</div><input #quote type="text" placeholder="Name" /> 
+  <div class="label">Type in the Quotation</div><input #authorId type="text" placeholder="Quote" />
+  <button (click)="create(quote.value, authorId.value)">Submit</button>
+  <h3 class="section-title">Quotes</h3>
+  <div class="quote-list">
+      <div *ngFor="let quote of quotes | async">
+        <h3 class="section-title">Quote</h3>
+        <div><div class="quote">"{{ quote.quote }}" </div><div class="quote">{{ quote.authorId }}</div></div>
+        <button (click)="delete(quote._id)">Delete</button>
+      </div>
+  </div>
+</div>
+

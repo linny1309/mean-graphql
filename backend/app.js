@@ -8,7 +8,7 @@ const { graphqlHTTP } = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolver = require('./graphql/resolvers');
 
-const config = require('./config/config.json');
+//const config = require('./config/config.json');
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(
 
 mongoose
   .connect(
-    `mongodb+srv://${config.user}:${config.password}@cluster0-mvcmf.mongodb.net/${config.dbname}?retryWrites=true&w=majority`,
+    `mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false`,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true,
@@ -35,6 +35,6 @@ mongoose
     }
   )
   .then(() => {
-    app.listen(3000, console.log('Connected to Port 3000.'));
+    app.listen(3001, console.log('Connected https://localhost:3001/'));
   })
   .catch((err) => console.log(err));
