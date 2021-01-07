@@ -28,10 +28,10 @@ module.exports = buildSchema(`
     authors: AuthorData!
   }
   type RootMutation {
-    createQuote(quote: String!, authorId: String!): Quote!
+    createQuote(quoteInput: QuoteInputData): Quote!
     updateQuote(id: ID!, quoteInput: QuoteInputData): Quote!
     deleteQuote(id: ID!): Quote!
-    createAuthor(quoteInput: AuthorInputData): Author!
+    createAuthor(authorInput: AuthorInputData): Author!
     updateAuthor(id: ID!, authorInput: AuthorInputData): Author!
     deleteAuthor(id: ID!): Author!
   }

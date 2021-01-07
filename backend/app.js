@@ -27,7 +27,7 @@ app.use(
 
 mongoose
   .connect(
-    `mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false`,
+    `mongodb://localhost:27017/library?readPreference=primary&appname=MongoDB%20Compass&ssl=false`,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true,
@@ -35,6 +35,6 @@ mongoose
     }
   )
   .then(() => {
-    app.listen(3001, console.log('Connected https://localhost:3001/'));
+    app.listen(3003, console.log('Connected https://localhost:3003/'));
   })
   .catch((err) => console.log(err));

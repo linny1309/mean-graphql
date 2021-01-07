@@ -2,6 +2,9 @@ const Quote = require('../models/quote');
 const Author = require('../models/author');
 
 module.exports = {
+  /*****************************************/ 
+  /* Quote CRUD
+  /*****************************************/
   quotes: async function () {
     const quotes = await Quote.find();
     return {
@@ -16,7 +19,7 @@ module.exports = {
   createQuote: async function ({ quoteInput }) {
     const quote = new Quote({
       quote: quoteInput.quote,
-      author: quoteInput.author,
+      authorId: quoteInput.authorId,
     });
     const createdQuote = await quote.save();
     return {
@@ -27,20 +30,27 @@ module.exports = {
   updateQuote: async function ({ id, quoteInput }) {
     const quote = await Quote.findById(id);
     if (!quote) {
-      throw new Error('No quote found!');
+      throw new Error('No quote found.');
     }
+    try {
     quote.quote = quoteInput.quote;
-    quote.author = quoteInput.author;
-    const updatedQuote = await quote.save();
+    quote.authorId = quoteInput.author;
+    const query = { "_id": id };
+    const update = { "$set": { "quote": quoteInput.quote, "authorId": quoteInput.authorId} };
+    const options = { returnNewDocument: true };
+    const updatedQuote = await Quote.findOneAndUpdate(query, update, options);
     return {
       ...updatedQuote._doc,
       _id: updatedQuote._id.toString(),
     };
+    } catch(err) {
+      console.log(err);
+    }
   },
   deleteQuote: async function ({ id }) {
     const quote = await Quote.findById(id);
     if (!quote) {
-      throw new Error('No quote found!');
+      throw new Error('No quote found.');
     }
     await Quote.findByIdAndRemove(id);
     return {
@@ -48,7 +58,20 @@ module.exports = {
       _id: quote._id.toString(),
     };
   },
+  /*****************************************/ 
+  /* Author CRUD
   /*****************************************/
+  authors: async function () {
+    const authors = await Author.find();
+    return {
+      authors: authors.map((q) => {
+        return {
+          ...q._doc,
+          _id: q._id.toString(),
+        };
+      }),
+    };
+  },
   createAuthor: async function ({ authorInput }) {
     const author = new Author({
       name: authorInput.name,
@@ -60,26 +83,26 @@ module.exports = {
     };
   },
   updateAuthor: async function ({ id, authorInput }) {
-    const author = await Author.findById(id);
-    if (!author) {
-      throw new Error('No author found!');
+    const authorId = await Author.findById(id);
+    if (!authorId) {
+      throw new Error('No authorId found.');
     }
-    author.name = authorInput.name
-    const updatedAuthor = await author.save();
+    authorId.name = authorInput.name
+    const updatedAuthor = await authorId.save();
     return {
       ...updatedAuthor._doc,
       _id: updatedAuthor._id.toString(),
     };
   },
   deleteAuthor: async function ({ id }) {
-    const author = await Author.findById(id);
-    if (!author) {
-      throw new Error('No author found!');
+    const authorId = await Author.findById(id);
+    if (!authorId) {
+      throw new Error('No authorId found.');
     }
     await Author.findByIdAndRemove(id);
     return {
-      ...author._doc,
-      _id: author._id.toString(),
+      ...authorId._doc,
+      _id: authorId._id.toString(),
     };
   },
 };
