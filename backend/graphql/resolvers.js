@@ -83,21 +83,28 @@ module.exports = {
     };
   },
   updateAuthor: async function ({ id, authorInput }) {
-    const authorId = await Author.findById(id);
-    if (!authorId) {
-      throw new Error('No authorId found.');
+    const author = await Author.findById(id);
+    if (!author) {
+      throw new Error('No author found.');
     }
-    authorId.name = authorInput.name
-    const updatedAuthor = await authorId.save();
+    try {
+    author.name = authorInput.name;
+    const query = { "_id": id };
+    const update = { "$set": { "name": authorInput.name} };
+    const options = { returnNewDocument: true };
+    const updatedAuthor = await Author.findOneAndUpdate(query, update, options);
     return {
       ...updatedAuthor._doc,
       _id: updatedAuthor._id.toString(),
     };
+    } catch(err) {
+      console.log(err);
+    }
   },
   deleteAuthor: async function ({ id }) {
     const authorId = await Author.findById(id);
     if (!authorId) {
-      throw new Error('No authorId found.');
+      throw new Error('No author found.');
     }
     await Author.findByIdAndRemove(id);
     return {

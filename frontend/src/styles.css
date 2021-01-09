@@ -1,4 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */ 
+@import '~material-icons/iconfont/material-icons.css';
+
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+

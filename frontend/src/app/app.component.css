@@ -1,20 +1,19 @@
 * {
-    width: 100%;
     margin: 0;
 }
 
-.body {
+body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 100vh;
+    background-color: rgb(149, 255, 218);
+    overflow-x: auto;
 }
 
-.quote-list {
-    position: absolute;
+.item-list {
     left: 0;
-    border-bottom: 1px solid rgb(38, 123, 165);
 }
 
 .create-title {
@@ -24,66 +23,116 @@
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(153, 255, 233);
     font-size: 30px;
+    border-right: none;
     text-align: center;
+    width: 99.7%;
 }
 
 .section-title {
+    background-color: rgb(2, 22, 18); 
+    color: rgb(153, 255, 233); ;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(153, 255, 233);
+    width: 99.7%;
+    border-right: none;
+}
+
+.item-title {
     background-color: rgb(0, 38, 30); 
     color: rgb(153, 255, 233); ;
     padding-top: 10px;
+    text-align: center;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(153, 255, 233);
+    width: 99.7%;
 }
 
 .label {
     background-color: lightblue;
     color: rgb(6, 26, 53);
     padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-size: 18px;
+    border-bottom: 1px solid rgb(0, 255, 191);
+    font-weight: bold;
+    width: 99.8%;
+    border-right: none;
 }
 
 button {
     padding-top: 10px;
+    font-weight: bold;
     padding-bottom: 10px;
-    border:none;
+    border: 1px solid rgb(58, 130, 114); 
     background-color: lightblue;
+    border-top: none;
     font-size: 18px;
     color:rgb(0, 38, 30);
+    text-align: left;
+    cursor: pointer;
+}
+
+.crud-button {
+    width: 100px;
 }
 
 input {
-    margin-top: -20px;
     border: none;
-    background-color: rgb(0, 38, 30);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: rgb(153, 255, 233);
-    font-size: 18px;
-    border-bottom: 1px solid rgb(153, 255, 233);
-    text-align: center;
-}
-
-.quote {
     background-color: rgb(89, 181, 188);
-    border-bottom: 1px solid rgb(38, 123, 165);
+    border: 1px solid rgb(33, 103, 138);
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    text-align: left;
+    color: white;
+    border-right: none;
+}
+
+.item {
+    background-color: rgb(89, 181, 188);
+    border: 1px solid rgb(33, 103, 138);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    width: 98.7%;
+    border-top: none;
+    border-right: none;
+}
+
+.author-group {
+    background-color: rgb(149, 255, 218);
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgb(153, 255, 233, 0.5);
+    color: rgba(11, 28, 24, 0.5);
     opacity: 1; /* Firefox */
-  }
+}
   
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: rgb(153, 255, 233, 0.5);
-  }
+}
   
-  ::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder { /* Microsoft Edge */
     color: rgb(153, 255, 233, 0.5);
-  }
+}
+
+span {
+    display: inline;
+}
+
+.mat-icon-text {
+    position: absolute;
+    margin-top: 2px;
+}
+
+.create-input {
+    width: 98.7%;
+}
 
 
 
