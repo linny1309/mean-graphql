@@ -1,0 +1,17 @@
+<body class="quotes-read" id="quotes">
+    <div class="group">
+      <div class="create-title"><span class="material-icons">menu_book</span><span>Quotes</span></div>
+      <h3 class="section-title">List of quotes</h3>
+      <div class="item-list">
+          <div *ngFor="let quote of quotes | async">
+            <h3 class="item-title">Quote</h3>
+            <div>
+              <div class="item" #quoteListItem>{{ quote.quote }}</div>
+              <div class="item" #authorIdListItem>{{ quote.authorId }}</div>
+            </div>
+          </div>
+      </div>
+    </div>
+  <br>
+</body>
+

@@ -1,44 +1,5 @@
-<body>
-  <div class="quote-group">
-    <div class="create-title"><span class="material-icons">menu_book</span><span>Create Quote</span></div>
-    <div class="label">Type in the Author of the Quote:</div><input #quote type="text" class="item" placeholder="Name" /> 
-    <div class="label">Type in the Quotation:</div><input #authorId type="text" class="item" placeholder="Quote" />
-    <br>
-    <button (click)="createQuote(quote.value, authorId.value)">Submit</button>
-    <br><br>
-    <h3 class="section-title">List of quotes</h3>
-    <div class="item-list">
-        <div *ngFor="let quote of quotes | async">
-          <h3 class="item-title">Quote</h3>
-          <div>
-            <input class="item" placeholder="{{ quote.quote }}" #quoteListItem>
-            <input class="item" placeholder="{{ quote.authorId }}" #authorIdListItem>
-          </div>
-          <button (click)="deleteQuote(quote._id)" class="crud-button"><span class="material-icons">delete</span><span class="mat-icon-text">Delete</span></button>
-          <button (click)="updateQuote(quote._id, quoteListItem.value, authorIdListItem.value)" class="crud-button"><span class="material-icons">edit</span><span class="mat-icon-text">Edit</span></button>
-        </div>
-    </div>
-  </div>
-  
-  <br>
-
-  <div class="author-group">
-    <div class="create-title"><span class="material-icons">menu_book</span>Create Author</div>
-    <div class="label">Type in the Author:</div><input #author class="create-input" type="text" placeholder="Name" /> 
-    <br>
-    <button (click)="createAuthor(author.value)">Submit</button>
-    <br><br>
-    <h3 class="section-title">List of authors</h3>
-    <div class="item-list">
-        <div *ngFor="let author of authors | async">
-          <h3 class="item-title">Author</h3>
-          <input class="create-input" placeholder="{{ author.name }}" #authorNameListItem>
-          <div>
-            <button (click)="deleteAuthor(author._id)" class="crud-button"><span class="material-icons">delete</span><span class="mat-icon-text">Delete</span></button>
-            <button (click)="updateAuthor(author._id, authorNameListItem.value)" class="crud-button"><span class="material-icons">edit</span><span class="mat-icon-text">Edit</span></button>
-          </div>
-    </div>
-  </div>
-</div>
-</body>
-
+<app-top-bar></app-top-bar>
+<app-authors></app-authors>
+<app-quotes></app-quotes>
+<app-quotes-read></app-quotes-read>
+<app-menu></app-menu>

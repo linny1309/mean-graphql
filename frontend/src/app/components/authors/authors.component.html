@@ -1,0 +1,21 @@
+<body class="authors" id="authors">
+    <div class="group">
+      <div class="create-title"><span class="material-icons">menu_book</span>Create Author</div>
+      <div class="label">Type in the author</div><input #author class="create-input" type="text" placeholder="Name" /> 
+      <br>
+      <button class="create-button"  (click)="createAuthor(author.value)">Submit</button>
+      <br><br>
+      <h3 class="section-title">List of authors</h3>
+      <div class="item-list">
+          <div *ngFor="let author of authors | async">
+            <h3 class="item-title">Author</h3>
+            <input class="create-input" placeholder="{{ author.name }}" #authorNameListItem>
+            <div>
+              <button (click)="deleteAuthor(author._id)" class="crud-button"><span class="material-icons">delete</span><span class="mat-icon-text">Delete</span></button>
+              <button (click)="updateAuthor(author._id, authorNameListItem.value)" class="crud-button"><span class="material-icons">edit</span><span class="mat-icon-text">Edit</span></button>
+            </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</body>

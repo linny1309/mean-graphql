@@ -1,5 +1,6 @@
 const Quote = require('../models/quote');
 const Author = require('../models/author');
+var mongoose = require('mongoose');
 
 module.exports = {
   /*****************************************/ 
@@ -14,6 +15,15 @@ module.exports = {
           _id: q._id.toString(),
         };
       }),
+    };
+  },
+  getQuote: async function ({ id }) {
+    var objectId = mongoose.Types.ObjectId(id);
+    const quote = await Quote.findById(objectId)
+    console.log(quote);
+    return {
+      ...quote._doc,
+      _id: quote._id.toString(),
     };
   },
   createQuote: async function ({ quoteInput }) {

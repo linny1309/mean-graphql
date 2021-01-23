@@ -1,0 +1,24 @@
+<body class="quotes" id="quotes">
+    <div class="group">
+      <div class="create-title"><span class="material-icons">menu_book</span><span>Create Quote</span></div>
+      <div class="label">Type in the author of the quotation</div><input #quote type="text" class="item" placeholder="Name" /> 
+      <div class="label">Type in the quotation</div><input #authorId type="text" class="item" placeholder="Quote" />
+      <br>
+      <button class="create-button" (click)="createQuote(quote.value, authorId.value)">Submit</button>
+      <br><br>
+      <h3 class="section-title">List of quotes</h3>
+      <div class="item-list">
+          <div *ngFor="let quote of quotes | async">
+            <h3 class="item-title">Quote</h3>
+            <div>
+              <input class="item" placeholder="{{ quote.quote }}" #quoteListItem>
+              <input class="item" placeholder="{{ quote.authorId }}" #authorIdListItem>
+            </div>
+            <button (click)="deleteQuote(quote._id)" class="crud-button"><span class="material-icons">delete</span><span class="mat-icon-text">Delete</span></button>
+            <button (click)="updateQuote(quote._id, quoteListItem.value, authorIdListItem.value)" class="crud-button"><span class="material-icons">edit</span><span class="mat-icon-text">Edit</span></button>
+          </div>
+      </div>
+    </div>
+  <br>
+</body>
+

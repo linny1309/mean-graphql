@@ -24,6 +24,7 @@ module.exports = buildSchema(`
     name: String!
   }
   type RootQuery {
+    getQuote(id: ID!): Quote
     quotes: QuoteData!
     authors: AuthorData!
   }

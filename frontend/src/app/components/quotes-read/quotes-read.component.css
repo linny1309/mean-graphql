@@ -1,0 +1,137 @@
+.quotes-read {
+    position: absolute;
+    top: 50px;
+    left: 700px;
+    width: 400px;
+    height: 100%;
+    background-color: rgb(87, 87, 87);
+    box-shadow: 2px 2px 2px #000000;
+    overflow: hidden;
+}
+
+.quotes-read-title {
+    position: unset;
+}
+
+.create-title {
+    position: relative;
+    background-color: rgb(136, 136, 136); 
+    color: rgb(22, 22, 22); ;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    border-right: none;
+    text-align: center;
+    width: 400px;
+    box-shadow: 2px 2px 2px #000000;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    position: fixed;
+    left: 300px;
+    width: 400px;
+    height: 96%;
+    background-color: rgb(158, 158, 158);
+    overflow-x: none;
+    overflow-y: auto;
+    box-shadow: 2px 2px 2px #000000;
+}
+
+.item-list {
+    left: 0;
+}
+
+.create-button {
+    border-left: none;
+}
+
+.section-title {
+    background-color: rgb(46, 46, 46); 
+    color: rgb(163, 163, 163); ;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(63, 63, 63);
+    width: 100%;
+    border-right: none;
+}
+
+.item-title {
+    background-color: rgb(28, 28, 28); 
+    color: rgb(143, 143, 143); ;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(150, 150, 150);
+    width: 100%;
+}
+
+.label {
+    background-color: rgb(155, 155, 155);
+    color: rgb(38, 38, 38);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid rgb(109, 109, 109);
+    font-weight: bold;
+    width: 100%;
+    border-right: none;
+}
+
+button {
+    padding-top: 10px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border: 1px solid rgb(199, 199, 199); 
+    background-color: rgb(128, 128, 128);
+    border-top: none;
+    font-size: 18px;
+    color:rgb(22, 22, 22);
+    text-align: left;
+    cursor: pointer;
+}
+
+.item {
+    background-color: rgb(58, 58, 58);
+    border: 1px solid rgb(33, 33, 33);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    border-top: none;
+    border-right: none;
+}
+
+.group {
+    background-color: rgb(158, 158, 158);
+    width: 100%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(109, 109, 109, 0.5);
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(153, 255, 233, 0.5);
+}
+
+span {
+    display: inline;
+}
+
+.mat-icon-text {
+    position: absolute;
+    margin-top: 2px;
+}
+
+
+
